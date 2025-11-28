@@ -204,11 +204,7 @@ function(SKSEPlugin_Add TARGET)
 		set(SKSE_SUPPORT_XBYAK OFF CACHE INTERNAL "Enables trampoline support for Xbyak." FORCE)
 	endif()
 
-	if(NOT SKSE_COMMONLIBSSE_PATH)
-		set(SKSE_COMMONLIBSSE_PATH "external/CommonLibSSE")
-	endif()
-
-	add_subdirectory(${SKSE_COMMONLIBSSE_PATH} CommonLibSSE EXCLUDE_FROM_ALL)
+	find_package(CommonLibSSE CONFIG REQUIRED)
 
 	find_package(spdlog CONFIG REQUIRED)
 
